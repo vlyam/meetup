@@ -1,0 +1,118 @@
+@use 'variables';
+@use 'mixins';
+
+.navbar {
+    height: 64px;
+    position: sticky;
+    top: 0;
+    background-color: #FFF;
+    z-index: 9;
+    @include mixins.transition();
+
+    &.navbar--shadowed {
+        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar__container {
+        width: 100%;
+        max-width: 1500px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+        @include mixins.flex-container(null, center, 40px);
+
+        @media (max-width: variables.$medium-screen) {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+        }
+    }
+
+    .navbar__logo {
+        width: 95px;
+        height: 34px;
+        flex-shrink: 0;
+
+        img {
+            width: 100%;
+        }
+    }
+
+
+    .navbar__search {
+        flex: 1 1 auto;
+        flex-shrink: 0;
+
+        @media (max-width: variables.$medium-screen) {
+            order: 3;
+            width: 100%;
+        }
+
+        @media (max-width: variables.$mini-screen) {
+            display: none;
+        }
+    }
+
+    .navbar__buttons {
+        flex-shrink: 0;
+        @include mixins.flex-container(center, center, 8px);
+
+        @media (max-width: variables.$small-screen) {
+            gap: 5px;
+        }
+
+        @media (max-width: variables.$mini-screen) {
+            display: none;
+        }
+    }
+
+    .navbar__hamburger {
+        width: 25px;
+        height: 25px;
+        display: none;
+
+        @media (max-width: variables.$mini-screen) {
+            @include mixins.flex-container(center, center, null);
+        }
+
+    }
+
+    .navbar__hamburger-panel {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -100%;
+        width: 100%;
+        max-width: calc(100% - 50px);
+        @include mixins.transition();
+
+        &.navbar__hamburger-panel--show {
+            left: 0;
+            box-shadow: 5px 0px 15px 0px rgba(0, 0, 0, 0.25);
+            z-index: 998;
+            display: none;
+
+            &::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: block;
+                backdrop-filter: blur(7px);
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+            }
+
+            @media (max-width: variables.$mini-screen) {
+                display: block;
+            }
+        }
+    }
+
+    @media (max-width: variables.$medium-screen) {
+        height: auto;
+        padding: 15px 0;
+    }
+}

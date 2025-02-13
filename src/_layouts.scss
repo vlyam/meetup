@@ -1,0 +1,81 @@
+@use 'variables';
+@use 'mixins';
+
+body {
+    background-color: #ffffff;
+
+    &.body__no-scroll {
+        overflow: hidden;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 1226px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    @media (max-width: variables.$large-screen) {
+        max-width: 888px;
+        ;
+    }
+}
+
+.page {
+    padding: 80px 0px 100px;
+    @include mixins.flex-container(space-between, null, 25px);
+
+    .page__main {
+        @include mixins.flex-container(null, null, 15px);
+        flex-direction: column;
+        width: 700px;
+
+        .page__head {
+            @include mixins.flex-container(space-between, null, 10px);
+            flex-direction: column;
+        }
+
+        @media (max-width: variables.$large-screen) {
+            width: calc(100% - 245px);
+        }
+
+        @media (max-width: variables.$medium-screen) {
+            width: calc(100% - 225px);
+        }
+
+        @media (max-width: variables.$small-screen) {
+            width: 100%;
+        }
+    }
+
+    .page__sidebar {
+        width: 350px;
+        @include mixins.flex-container(null, null, 15px);
+        flex-direction: column;
+        flex-shrink: 0;
+
+        @media (max-width: variables.$large-screen) {
+            width: 220px;
+        }
+
+        @media (max-width: variables.$medium-screen) {
+            width: 200px;
+        }
+
+        @media (max-width: variables.$small-screen) {
+            display: none;
+        }
+    }
+
+    @media (max-width: variables.$large-screen) {
+        padding: 35px 0px 74px;
+    }
+}

@@ -1,0 +1,96 @@
+@use 'variables';
+@use 'mixins';
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    z-index: 1000;
+    @include mixins.flex-container(center, center, null);
+
+    &.modal--hidden {
+        display: none;
+    }
+
+    @media (max-width: variables.$small-screen) {
+        align-items: start;
+    }
+
+    @media (max-height: 500px) {
+        align-items: start;
+    }
+
+    .modal__body {
+        padding: 45px;
+        background-color: #fff;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        min-height: 400px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+
+        &.modal__body--size_large {
+            max-width: 850px;
+        }
+
+        &.modal__body--size_medium {
+            max-width: 650px;
+        }
+
+        &.modal__body--size_small {
+            max-width: 450px;
+        }
+
+        &.modal__body--padding_none {
+            padding: 0px;
+        }
+
+        @media (max-width: variables.$small-screen) {
+            padding: 25px;
+        }
+
+        .modal__body-content {
+            margin-top: 55px;
+            width: 100%;
+
+            @include mixins.flex-container(null, null, null);
+        }
+
+        .modal__close-button {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 27px;
+            height: 27px;
+            border: none;
+            border-radius: 50%;
+            outline: none;
+            background-color: #FFFFFF;
+            background-image: url("data:image/svg+xml,%3Csvg width='11' height='11' viewBox='0 0 11 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.25 1.25L9.75 9.75L1.25 1.25ZM9.75 1.25L1.25 9.75L9.75 1.25Z' fill='%23212121'/%3E%3Cpath d='M1.25 1.25L9.75 9.75M9.75 1.25L1.25 9.75' stroke='%23212121' stroke-width='1.25'/%3E%3C/svg%3E%0A");
+            background-size: 17px 17px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            cursor: pointer;
+            @include mixins.transition($duration: 200ms, $timing:ease-out);
+
+            &:hover,
+            &:focus {
+                opacity: 1;
+                -moz-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                -webkit-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                transform: rotate(90deg);
+            }
+        }
+    }
+}

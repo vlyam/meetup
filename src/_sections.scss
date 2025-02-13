@@ -1,0 +1,118 @@
+@use 'variables';
+@use 'mixins';
+
+section.head-section {
+    padding: 65px 0 124px;
+    @include mixins.flex-container(null, center, 85px);
+
+    .head-section__text-container {
+        max-width: 565px;
+        @include mixins.flex-container(null, start, 24px);
+        flex-direction: column;
+        flex-shrink: 0;
+
+        h1.head-section__title {
+            font-weight: 700;
+            font-size: 42px;
+            line-height: 52px;
+            color: variables.$third-color;
+
+            @media (max-width: variables.$medium-screen) {
+                font-size: 32px;
+                line-height: 42px;
+            }
+
+            @media (max-width: variables.$small-screen) {
+                font-size: 25px;
+                line-height: 30px;
+            }
+        }
+
+        p.head-section__paragraph {
+            font-size: 16px;
+            line-height: 24px;
+            color: variables.$third-color;
+        }
+
+        @media (max-width: variables.$large-screen) {
+            flex: 1 1 auto;
+            max-width: unset;
+        }
+    }
+
+    .head-section__picture {
+        width: 380px;
+        height: 270px;
+        flex-shrink: 0;
+
+        img {
+            width: 100%;
+        }
+
+        @media (max-width: variables.$medium-screen) {
+            width: 222px;
+            height: 158px;
+        }
+
+        @media (max-width: variables.$small-screen) {
+            width: 60%;
+            height: auto;
+        }
+
+        @media (max-width: variables.$mobile-screen) {
+            width: 80%;
+        }
+    }
+
+    @media (max-width: variables.$medium-screen) {
+        gap: 40px;
+        padding: 35px 0 74px;
+    }
+
+    @media (max-width: variables.$small-screen) {
+        flex-direction: column;
+    }
+}
+
+section.section {
+    @include mixins.flex-container(null, null, 24px);
+    flex-direction: column;
+    margin-bottom: 80px;
+
+    .section__head {
+        @include mixins.flex-container(null, center, 22px);
+
+        .section__title {
+            @include mixins.flex-container(null, null, 16px);
+            flex-direction: column;
+            max-width: 850px;
+        }
+
+        .section__head-left-item {
+            @include mixins.flex-container(null, center, 22px);
+            flex: 1 1 auto;
+
+            @media (max-width: variables.$small-screen) {
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+        }
+
+        .section__head-right-item {
+            @include mixins.flex-container(null, center, 10px);
+            width: auto;
+
+            @media (max-width: variables.$small-screen) {
+                display: none;
+            }
+        }
+
+        flex-shrink: 0;
+
+
+    }
+
+    .section__main {
+        flex-shrink: 0;
+    }
+}

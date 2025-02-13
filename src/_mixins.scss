@@ -1,0 +1,10 @@
+@mixin flex-container($justify: center, $align: center, $gap: 10px){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin transition($property: all, $duration: 400ms, $timing: ease){
+    transition: $property $duration $timing;
+}

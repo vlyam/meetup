@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events near New York - Meetup</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <header id="navbar" class="navbar"></header>
+
+    <main class="main">
+        <div class="container">
+
+            <div class="page">
+                <div class="page__main">
+                    <div class="page__head">
+                        <h1 class="page-title">Events near New York, NY</h1>
+                    </div>
+
+                    <div class="events">
+
+                        <div class="events__tabs">
+                            <div class="events__tab events__tab--active">Events</div>
+                            <div class="events__tab"></div>
+                        </div>
+                        <div class="events__filter">
+                            <div class="filter">
+                                <select class="filter__select" id="typeFilter">
+                                    <option value="Any type" selected>Any type</option>
+                                    <option value="online">Online</option>
+                                    <option value="offline">Offline</option>
+                                </select>
+                            </div>
+                            <div class="filter">
+                                <select class="filter__select" id="distanceFilter">
+                                    <option value="Any distance" selected>Any distance</option>
+                                    <option value="5">5 km</option>
+                                    <option value="10">10 km</option>
+                                    <option value="15">15 km</option>
+                                    <option value="25">25 km</option>
+                                    <option value="50">50 km</option>
+                                    <option value="75">75 km</option>
+                                    <option value="100">100 km</option>
+                                </select>
+                            </div>
+                            <div class="filter">
+                                <select class="filter__select" id="categoryFilter">
+                                    <option value="Any category" selected>Any category</option>
+                                    <option value="Social Activities">Social Activities</option>
+                                    <option value="Hobbies and Passions">Hobbies and Passions</option>
+                                    <option value="Health and Wellbeing">Health and Wellbeing</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Technology">Technology</option>
+                                </select>
+                            </div>
+                            <div class="filter">
+                                <select class="filter__select" id="dayFilter">
+                                    <option value="Any day" selected>Any day</option>
+                                    <option value="Mar 13, 11:00 AM">Mar 13, 11:00 AM</option>
+                                    <option value="Mar 13, 6:00 PM">Mar 13, 6:00 PM</option>
+                                    <option value="Mar 13, 6:30 PM">Mar 13, 6:30 PM</option>
+                                    <option value="Mar 13, 7:00 PM">Mar 13, 7:00 PM</option>
+                                    <option value="Mar 14, 11:00 AM">Mar 14, 11:00 AM</option>
+                                    <option value="Mar 14, 5:00 PM">Mar 14, 5:00 PM</option>
+                                    <option value="Mar 14, 5:30 PM">Mar 14, 5:30 PM</option>
+                                    <option value="Mar 14, 6:00 PM">Mar 14, 6:00 PM</option>
+                                    <option value="Mar 16, 2:00 PM">Mar 16, 2:00 PM</option>
+                                    <option value="Mar 18, 7:00 PM">Mar 18, 7:00 PM</option>
+                                    <option value="Mar 19, 5:00 PM">Mar 19, 5:00 PM</option>
+                                    <option value="Mar 21, 6:00 PM">Mar 21, 6:00 PM</option>
+                                    <option value="Mar 23, 11:30 AM">Mar 23, 11:30 AM</option>
+                                    <option value="Mar 23, 3:00 PM">Mar 23, 3:00 PM</option>
+                                    <option value="Mar 29, 6:00 PM">Mar 29, 6:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="events__list" id="eventsList"></div>
+
+                    </div>
+
+
+
+
+                </div>
+                <div class="page__sidebar">
+                    <div class="map">
+                        <div class="map__head">
+                            <div class="map__label">Find events near</div>
+                            <div class="map__city">New York, NY</div>
+                        </div>
+                        <div class="map__thumbnail">
+                            <img src="img/map-thumbnail.jpg" alt="">
+                            <div class="map__buttons">
+                                <button class="map__button" data-open-modal="map">Browse in map</button>
+                                <button class="map__close"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </main>
+    <footer id="footer" class="footer"></footer>
+    <div id="modals" class="modals"></div>
+
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/catalog-events-ny.js"></script>
+    <script src="js/events-render.js"></script>
+    <script src="js/events-filter.js"></script>
+</body>
+
+</html>
